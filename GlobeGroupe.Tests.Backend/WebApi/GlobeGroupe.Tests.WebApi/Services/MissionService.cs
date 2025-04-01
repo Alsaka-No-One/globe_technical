@@ -41,13 +41,11 @@ public class MissionService : IMissionService
         string? interventionPointName,
         bool? hasPromoter)
     {
-        // On commence par récupérer toutes les missions avec leurs relations
         IQueryable<Mission> missionsQuery = _context.Missions
             .Include(m => m.Promoter)
             .Include(m => m.InterventionPoint)
             .AsQueryable();
 
-        // On applique les filtres un par un si nécessaire
         if (id.HasValue)
         {
             missionsQuery = missionsQuery.Where(m => m.Id == id.Value);
@@ -55,7 +53,6 @@ public class MissionService : IMissionService
 
         if (!string.IsNullOrEmpty(name))
         {
-            // Recherche partielle dans le nom
             missionsQuery = missionsQuery.Where(m => m.Name.Contains(name));
         }
 
@@ -109,13 +106,11 @@ public class MissionService : IMissionService
     /// <exception cref="InvalidOperationException">Lancée si la mission n'a pas pu être créée.</exception>
     public async Task<Mission> CreateMissionAsync(CreateMissionDto missionDto)
     {
-        // Vérification des dates
         if (missionDto.StartDate >= missionDto.EndDate)
         {
             throw new ArgumentException("La date de début doit être antérieure à la date de fin.");
         }
 
-        // Vérification du promoteur si spécifié
         if (missionDto.PromoterId.HasValue)
         {
             Promoter? promoter = await _context.Promoters.FindAsync(missionDto.PromoterId);
@@ -125,14 +120,12 @@ public class MissionService : IMissionService
             }
         }
 
-        // Vérification du point d'intervention
         InterventionPoint? interventionPoint = await _context.InterventionPoints.FindAsync(missionDto.InterventionPointId);
         if (interventionPoint == null)
         {
             throw new ArgumentException("Le point d'intervention spécifié n'existe pas.");
         }
 
-        // Création de la nouvelle mission
         Mission newMission = new Mission
         {
             Name = missionDto.Name,
@@ -146,7 +139,6 @@ public class MissionService : IMissionService
         _context.Missions.Add(newMission);
         await _context.SaveChangesAsync();
 
-        // On récupère la mission créée avec ses relations
         Mission? createdMission = await GetMissionByIdAsync(newMission.Id);
         if (createdMission == null)
         {
