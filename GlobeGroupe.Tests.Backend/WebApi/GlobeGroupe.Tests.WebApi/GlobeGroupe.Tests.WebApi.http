@@ -1,0 +1,56 @@
+@HostAddress = http://localhost:5251
+
+### Récupérer toutes les missions
+GET {{HostAddress}}/api/missions
+Accept: application/json
+
+### Récupérer une mission par ID
+GET {{HostAddress}}/api/missions/1
+Accept: application/json
+
+### Créer une nouvelle mission
+POST {{HostAddress}}/api/missions
+Content-Type: application/json
+
+{
+    "name": "Nouvelle Mission Test",
+    "description": "Description de la mission test",
+    "startDate": "2025-06-01T00:00:00",
+    "endDate": "2025-06-10T00:00:00",
+    "promoterId": 1,
+    "interventionPointId": 1
+}
+
+### Test: Filtres GET - Recherche par nom
+GET {{HostAddress}}/api/missions?name=Test
+Accept: application/json
+
+### Test: Filtres GET - Recherche par date après
+GET {{HostAddress}}/api/missions?dateAfter=2025-01-01T00:00:00
+Accept: application/json
+
+### Test: Filtres GET - Recherche par date avant
+GET {{HostAddress}}/api/missions?dateBefore=2025-12-31T00:00:00
+Accept: application/json
+
+### Test: Filtres GET - Recherche par pays
+GET {{HostAddress}}/api/missions?country=1
+Accept: application/json
+
+### Test: Filtres GET - Recherche par nom de point d'intervention
+GET {{HostAddress}}/api/missions?interventionPointName=Point
+Accept: application/json
+
+### Test: Filtres GET - Recherche des missions avec promoteur
+GET {{HostAddress}}/api/missions?hasPromoter=true
+Accept: application/json
+
+### Test: Filtres GET - Recherche des missions sans promoteur
+GET {{HostAddress}}/api/missions?hasPromoter=false
+Accept: application/json
+
+### Test: Filtres GET - Combinaison de plusieurs filtres
+GET {{HostAddress}}/api/missions?name=Test&dateAfter=2025-01-01T00:00:00&hasPromoter=true
+Accept: application/json
+
+###

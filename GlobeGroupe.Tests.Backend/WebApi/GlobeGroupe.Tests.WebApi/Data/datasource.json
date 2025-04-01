@@ -1,0 +1,142 @@
+{
+  "Promoters": [
+    {
+      "Id": 1,
+      "FirstName": "John",
+      "LastName": "Doe",
+      "Email": "john.doe@example.com",
+      "PhoneNumber": "123-456-7890",
+      "Birthdate": "1980-01-01T00:00:00"
+    },
+    {
+      "Id": 2,
+      "FirstName": "Jane",
+      "LastName": "Smith",
+      "Email": "jane.smith@example.com",
+      "PhoneNumber": "234-567-8901",
+      "Birthdate": "1985-02-02T00:00:00"
+    },
+    {
+      "Id": 3,
+      "FirstName": "Alice",
+      "LastName": "Johnson",
+      "Email": "alice.johnson@example.com",
+      "PhoneNumber": "345-678-9012",
+      "Birthdate": "1990-03-03T00:00:00"
+    },
+    {
+      "Id": 4,
+      "FirstName": "Bob",
+      "LastName": "Brown",
+      "Email": "bob.brown@example.com",
+      "PhoneNumber": "456-789-0123",
+      "Birthdate": "1975-04-04T00:00:00"
+    },
+    {
+      "Id": 5,
+      "FirstName": "Charlie",
+      "LastName": "Davis",
+      "Email": "charlie.davis@example.com",
+      "PhoneNumber": "567-890-1234",
+      "Birthdate": "1995-05-05T00:00:00"
+    }
+  ],
+  "InterventionPoints": [
+    {
+      "Id": 1,
+      "Name": "Intervention Point A",
+      "Address": "123 Main St, Cityville",
+      "CountryId": 1,
+      "Brand": "Brand A"
+    },
+    {
+      "Id": 2,
+      "Name": "Intervention Point B",
+      "Address": "456 Elm St, Townsville",
+      "CountryId": 2,
+      "Brand": "Brand B"
+    },
+    {
+      "Id": 3,
+      "Name": "Intervention Point C",
+      "Address": "789 Oak St, Villageville",
+      "CountryId": 1,
+      "Brand": "Brand C"
+    },
+    {
+      "Id": 4,
+      "Name": "Intervention Point D",
+      "Address": "101 Pine St, Hamletville",
+      "CountryId": 2,
+      "Brand": "Brand D"
+    },
+    {
+      "Id": 5,
+      "Name": "Intervention Point E",
+      "Address": "202 Maple St, Boroughville",
+      "CountryId": 1,
+      "Brand": "Brand E"
+    }
+  ],
+  "Countries": [
+    {
+      "Id": 1,
+      "Name": "France"
+    },
+    {
+      "Id": 2,
+      "Name": "England"
+    },
+    {
+      "Id": 3,
+      "Name": "Spain"
+    }
+  ],
+  "Missions": [
+    {
+      "Id": 1,
+      "Name": "Mission Alpha",
+      "Description": "First mission description",
+      "StartDate": "2025-01-01T00:00:00",
+      "EndDate": "2025-01-10T00:00:00",
+      "PromoterId": 1,
+      "InterventionPointId": 1
+    },
+    {
+      "Id": 2,
+      "Name": "Mission Beta",
+      "Description": "Second mission description",
+      "StartDate": "2025-02-01T00:00:00",
+      "EndDate": "2025-02-10T00:00:00",
+      "PromoterId": null,
+      "InterventionPointId": 2
+    },
+    {
+      "Id": 3,
+      "Name": "Mission Gamma",
+      "Description": "Third mission description",
+      "StartDate": "2025-03-01T00:00:00",
+      "EndDate": "2025-03-10T00:00:00",
+      "PromoterId": 2,
+      "InterventionPointId": 3
+    },
+    {
+      "Id": 4,
+      "Name": "Mission Delta",
+      "Description": "Fourth mission description",
+      "StartDate": "2025-04-01T00:00:00",
+      "EndDate": "2025-04-10T00:00:00",
+      "PromoterId": null,
+      "InterventionPointId": 4
+    },
+    {
+      "Id": 5,
+      "Name": "Mission Epsilon",
+      "Description": "Fifth mission description",
+      "StartDate": "2025-05-01T00:00:00",
+      "EndDate": "2025-05-10T00:00:00",
+      "PromoterId": 3,
+      "InterventionPointId": 5
+    }
+  ]
+}
